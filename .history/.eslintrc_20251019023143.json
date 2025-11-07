@@ -1,0 +1,7 @@
+{
+  "extends": "react-app",
+  "rules": {
+    "no-unused-vars": "warn", // Changes it from an error (red) to a warning (yellow)
+    "react/no-unescaped-entities": "off" // Turns the rule off completely
+  }
+}
