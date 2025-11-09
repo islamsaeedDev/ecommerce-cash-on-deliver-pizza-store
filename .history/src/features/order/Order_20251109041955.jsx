@@ -22,6 +22,7 @@ function Order() {
     [fetcher],
   );
 
+  console.log('fetcher', fetcher);
   // Everyone can search for all orders, so for privacy reasons we're gonna gonna exclude names or address, these are only for the restaurant staff
   const {
     id,
@@ -96,7 +97,9 @@ function Order() {
   );
 }
 export async function loader({ params }) {
+  console.log('params', params);
   const order = await getOrder(params.orderId);
+  console.log('orderifpresent', order);
   return order;
 }
 export default Order;

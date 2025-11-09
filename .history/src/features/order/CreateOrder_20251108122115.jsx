@@ -158,9 +158,10 @@ export async function action({ request }) {
   if (!isValidPhone(order.phone)) errors.phone = 'Invalid phone number';
   if (Object.keys(errors).length > 0) return errors;
 
-  const newOrder = await createOrder(order);
-  store.dispatch(clearCart());
-  return redirect(`/order/${newOrder.id}`);
+  // const newOrder = await createOrder(order);
+  // store.dispatch(clearCart());
+  // return redirect(`/order/${newOrder.id}`);
+  return null;
 }
 
 export default CreateOrder;

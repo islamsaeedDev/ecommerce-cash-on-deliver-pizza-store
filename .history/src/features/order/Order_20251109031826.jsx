@@ -10,7 +10,6 @@ import {
   formatDate,
 } from '../../utils/helpers';
 import { useEffect } from 'react';
-import UpdateOrder from './UpdateOrder';
 
 function Order() {
   const order = useLoaderData();
@@ -22,6 +21,7 @@ function Order() {
     [fetcher],
   );
 
+  console.log('fetcher', fetcher);
   // Everyone can search for all orders, so for privacy reasons we're gonna gonna exclude names or address, these are only for the restaurant staff
   const {
     id,
@@ -91,12 +91,13 @@ function Order() {
           To pay on delivery: {formatCurrency(orderPrice + priorityPrice)}
         </p>
       </div>
-      {!priority && <UpdateOrder order={order} />}
     </div>
   );
 }
 export async function loader({ params }) {
+  console.log('params', params);
   const order = await getOrder(params.orderId);
+  console.log('orderifpresent', order);
   return order;
 }
 export default Order;

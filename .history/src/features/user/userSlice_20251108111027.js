@@ -18,7 +18,7 @@ export const fetchAddress = createAsyncThunk('user/fetchAddress',
       longitude: positionObj.coords.longitude,
     }
     const addressObj = await getAddress(position);
-    const address = `${addressObj?.locality}, ${addressObj?.city},${addressObj.postalCode}, ${addressObj?.countryName}`
+    const address = `${addressObj?.locality}, ${addressObj?.city},${addressObj.postalcode}, ${addressObj?.countryName}`
 
     return { position, address }
   }

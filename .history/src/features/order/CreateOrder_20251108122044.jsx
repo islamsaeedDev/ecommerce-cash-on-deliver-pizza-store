@@ -153,7 +153,6 @@ export async function action({ request }) {
     cart: JSON.parse(data.cart),
     priority: data.priority === 'true',
   };
-  console.log(order);
   const errors = {};
   if (!isValidPhone(order.phone)) errors.phone = 'Invalid phone number';
   if (Object.keys(errors).length > 0) return errors;

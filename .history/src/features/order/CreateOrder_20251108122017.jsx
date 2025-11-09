@@ -120,18 +120,17 @@ function CreateOrder() {
             Want to yo give your order priority?
           </label>
         </div>
-        <div>
-          <input type="hidden" value={JSON.stringify(cart)} name="cart" />
-          <input
-            type="hidden"
-            name="position"
-            value={
-              position.longitude && position.latitude
-                ? `${position.latitude},${position.longitude}`
-                : ''
-            }
-          />
-        </div>
+        <input type="hidden" value={JSON.stringify(cart)} name="cart" />
+        <input
+          type="hidden"
+          name="position"
+          value={
+            position.longitude && position.latitude
+              ? `${position.latitude},${position.longitude}`
+              : ''
+          }
+        />
+
         <div className="flex items-center gap-3">
           <p className="text-lg font-bold">Total Price:</p>
           <p className="text-lg font-medium">{formatCurrency(totalPrice)}</p>
@@ -153,7 +152,6 @@ export async function action({ request }) {
     cart: JSON.parse(data.cart),
     priority: data.priority === 'true',
   };
-  console.log(order);
   const errors = {};
   if (!isValidPhone(order.phone)) errors.phone = 'Invalid phone number';
   if (Object.keys(errors).length > 0) return errors;
